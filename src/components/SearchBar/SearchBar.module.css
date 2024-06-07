@@ -1,0 +1,33 @@
+.header {
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 6px;
+    background-color: #4682B4;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+    z-index: 999999;
+}
+
+.input {
+    position: relative;
+    width: 500px;
+    height: 30px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 5px 35px;
+    font-size: 16px;
+}
+
+.search {
+    position: relative;
+    left: 30px;
+    top: 3px;
+    background-color: transparent;
+    color: black;
+    border: transparent;
+    z-index:9999999;
+    cursor: pointer;
+}
