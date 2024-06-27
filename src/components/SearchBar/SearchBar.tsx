@@ -1,14 +1,16 @@
+import React, { FormEvent } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
-import { FaMagnifyingGlass } from "react-icons/fa6";
-import css from './SearchBar.module.css'
+import { FaMagnifyingGlass } from 'react-icons/fa6';
+import { SearchBarProps } from './SearchBar.types';
+import css from './SearchBar.module.css';
 
 const notify = () => toast.error("Please enter requested value!");
 
-export default function SearchBar({ onSearch }) {
-    function handleSubmit(event) {
+const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
+    function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const form = event.target;
-    const topic = form.elements.search.value.trim();
+    const form = event.currentTarget;
+    const topic = form.search.value.trim();
     if (topic === "") {
         notify();
         form.reset();
@@ -16,7 +18,7 @@ export default function SearchBar({ onSearch }) {
         onSearch(topic);
         form.reset();
     }
-    }
+    };
 
     return (
     <header className={css.header}>
@@ -29,8 +31,9 @@ export default function SearchBar({ onSearch }) {
                     autoComplete="off"
                     autoFocus
                     placeholder="Search images and photos" />
-                <Toaster position="top-center" everseOrder={false}/>
+                <Toaster position="top-center" reverseOrder={false}/>
             </form>
     </header>
     )
 }
+export default SearchBar;
