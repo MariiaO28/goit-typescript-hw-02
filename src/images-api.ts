@@ -7,6 +7,8 @@ export type Photo = {
     id: string;
     urls: { small: string; regular: string };
     description: string;
+    likes: number;
+    user: { name: string }
 };
 
 type FetchPhotosResponse = {

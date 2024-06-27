@@ -15,7 +15,7 @@ const App: React.FC = () => {
   const [page, setPage] = useState<number>(1);
   const [query, setQuery] = useState<string>('');
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
-  const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
+  const [selectedPhoto, setSelectedPhoto] = useState<string | undefined>(undefined);
   const [totalPages, setTotalPages] = useState<number>(0);
  
 async function handleSearch(newQuery: string) {
@@ -49,8 +49,8 @@ async function handleSearch(newQuery: string) {
     getPhotos()
   }, [page, query])
 
-  function openModal(photo: Photo):void {
-    setSelectedPhoto(photo)
+  function openModal(imageUrl: string, description: string):void {
+    setSelectedPhoto(imageUrl)
     setIsOpen(true)
   }
 

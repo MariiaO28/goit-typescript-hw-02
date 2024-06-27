@@ -1,6 +1,6 @@
-import { Photo } from '../../images-api';
+import { Photo } from "../../images-api";
 
 export type ImageGalleryProps = {
     photos: Photo[];
-    openModal: (photo:Photo) => void;
+    openModal: (imageUrl: string, description: string) => void;
 };
